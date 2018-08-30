@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8"/>
+    <title>Demos</title>
+    <link rel="stylesheet" href="assets/bootstrap/css/bootstrap.css" />
+    <link rel="stylesheet" href="../multiple-select.css" />
+</head>
+<body>
+<div class="container">
+    <div class="form-group">
+        <label>Email address</label>
+        <input type="email" class="form-control" placeholder="Enter email">
+    </div>
+<div class='content'>
+    <table class='tbl'>
+        <tr>
+            <td>
+                <label>Month</label>
+                <select class='categories' multiple="multiple">
+                    <option value="1">January</option>
+                    <option value="2">February</option>
+                    <option value="3">March</option>
+                    <option value="4">April</option>
+                    <option value="5">May</option>
+                    <option value="6">June</option>
+                    <option value="7">July</option>
+                    <option value="8">August</option>
+                    <option value="9">September</option>
+                    <option value="10">October</option>
+                    <option value="11">November</option>
+                    <option value="12">December</option>
+                </select>
+            </td>
+        </tr>
+    </table>
+</div>
+    <div class="form-group addnew" id="addnew">
+        <button>Add more</button>
+    </div>
+</div>
+
+<script src="assets/jquery.min.js"></script>
+<script src="../multiple-select.js"></script>
+<script>
+    $(".categories").multipleSelect({ width: '100%' });
+
+    $(document).on('click', '.addnew', function () {
+        var $clone = $(".tbl select").last().clone();
+        $(".content").append($clone);
+        $clone.multipleSelect({ width: '100%' });
+    });
+</script>
+</body>
+</html>
